@@ -7,7 +7,7 @@ import {DevOpsTools} from "../lib/foundry-devops/src/DevOpsTools.sol";
 
 contract MintBasicNFT is Script {
     string public constant DOG =
-        "ipfs://QmUPjADFGEKmfohdTaNcWhp7VGk26h5jXDA7v3VtTnTLcW";
+        "ipfs://QmWVLzdcyAcc7AV8VMQ3h77G3bQASFxE7TeSBUxjMjsUjG";
 
     function mintNFTOnContract(address contractAddress) public {
         vm.startBroadcast();
