@@ -64,3 +64,16 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+# Visualizing SVG
+run the command: 
+```
+base64 -i images/example.svg
+```
+The result, in this case is the following un-human readable data.\
+
+data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdo
+dD0iNTAwIj4KPHRleHQgeD0iMCIgeT0iMTUiIGZpbGw9ImJsYWNrIj5IaSwgeW91IGRlY29kZWQg
+dGhpcyE8L3RleHQ+Cjwvc3ZnPg==
+\
+If we insert this data in a browser url space, the browser will be able to decode this.
+This happens because we told it that we're providing some data of type image formatted in svg + xml, encoded in base64, with the base64 encoded data provided next.
