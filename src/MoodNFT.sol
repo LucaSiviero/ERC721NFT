@@ -8,6 +8,7 @@ contract MoodNFT is ERC721 {
     uint256 private s_tokenCounter;
     string private s_sadSvgImageUri;
     string private s_happySvgImageUri;
+    error MoodNFT__NotOwner();
 
     enum Mood {
         HAPPY,
@@ -33,6 +34,19 @@ contract MoodNFT is ERC721 {
     // We need this so we can prepend the string to the json encoded data for the nft uri
     function _baseURI() internal pure override returns (string memory) {
         return "data:application/json;base64,";
+    }
+
+    function flipMood(uint256 tokenId) public {
+        // Only owner can flip Mood
+        if (ownerOf(tokenId) != msg.sender) {
+            revert MoodNFT__NotOwner();
+        }
+
+        if (s_tokenIdToMood[tokenId] == Mood.HAPPY) {
+            s_tokenIdToMood[tokenId] = Mood.SAD;
+        } else {
+            s_tokenIdToMood[tokenId] = Mood.HAPPY;
+        }
     }
 
     function tokenURI(
