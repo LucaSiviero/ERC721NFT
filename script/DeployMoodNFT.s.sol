@@ -2,6 +2,7 @@
 pragma solidity ^0.8.18;
 
 import {Script} from "forge-std/Script.sol";
+import {console} from "forge-std/Test.sol";
 import {MoodNFT} from "../src/MoodNFT.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 
@@ -20,7 +21,7 @@ contract DeployMoodNFT is Script {
         // vm.readFile is a foundry cheatcode to read from file system.
         // It needs permission as specified in .toml file
         string memory sadSvg = vm.readFile("./images/sad.svg");
-        string memory happySvg = vm.readFile("./images/happySvg");
+        string memory happySvg = vm.readFile("./images/happy.svg");
         string memory sadSvgImageUri = svgToImageUri(sadSvg);
         string memory happySvgImageUri = svgToImageUri(happySvg);
 

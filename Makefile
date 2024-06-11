@@ -1,6 +1,6 @@
 -include .env
 
-.PHONY: all test clean deploy fund help install snapshot format anvil 
+.PHONY: all test clean deploy fund help install snapshot format anvil deployMoodNft
 
 help:
 	@echo "Usage:"
@@ -43,3 +43,8 @@ deploy:
 mint:
 	@forge script script/Interactions.s.sol:MintBasicNFT ${NETWORK_ARGS}
 
+mintMoodNft:
+	@forge script script/Interactions.s.sol:MintMoodNft ${NETWORK_ARGS}
+
+deployMoodNft:
+	@forge script script/DeployMoodNFT.s.sol:DeployMoodNFT $(NETWORK_ARGS)
